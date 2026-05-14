@@ -2,10 +2,14 @@
   "apiVersion": "apps/v1",
   "kind": "Deployment",
   "metadata": {
-    "name": "xiami-monitor"
+    "name": "xiami-monitor",
+    "labels": {
+      "app": "xiami-monitor"
+    }
   },
   "spec": {
     "replicas": 1,
+    "revisionHistoryLimit": 3,
     "selector": {
       "matchLabels": {
         "app": "xiami-monitor"
@@ -25,7 +29,7 @@
             "imagePullPolicy": "IfNotPresent",
             "ports": [
               {
-                "containerPort": 30812
+                "containerPort": 8080
               }
             ],
             "resources": {
