@@ -1,0 +1,35 @@
+{
+  "apiVersion": "apps/v1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "xiami-monitor"
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels": {
+        "app": "xiami-monitor"
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "xiami-monitor"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "xiami-monitor",
+            "image": "xiami-monitor:1.0",
+            "ports": [
+              {
+                "containerPort": 8080
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
