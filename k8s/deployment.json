@@ -22,11 +22,22 @@
           {
             "name": "xiami-monitor",
             "image": "xiami-monitor:1.0",
+            "imagePullPolicy": "IfNotPresent",
             "ports": [
               {
-                "containerPort": 8080
+                "containerPort": 30812
               }
-            ]
+            ],
+            "resources": {
+              "requests": {
+                "memory": "256Mi",
+                "cpu": "250m"
+              },
+              "limits": {
+                "memory": "512Mi",
+                "cpu": "500m"
+              }
+            }
           }
         ]
       }
